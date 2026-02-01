@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抖音宠贝爱日用百货创意屋窗帘定制 - 款式展示</title>
+    <!-- 引入轻量样式框架，保证美观和适配 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 简单优化图片hover效果，提升体验 */
+        .curtain-item:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        /* 新增：图片放大遮罩层样式（默认隐藏） */
+        .img-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* 新增：遮罩层显示状态 */
+        .img-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 新增：放大后的图片样式 */
+        .modal-img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 网站头部 -->
+    <header class="bg-white shadow-sm py-4 px-6 text-center">
+        <h1 class="text-2xl font-bold text-gray-800">抖音宠贝爱日用百货创意屋窗帘定制 · 精选款式</h1>
+        <p class="text-gray-600 mt-2">进抖音直播间，报尺寸，享优惠</p>
+    </header>
+
+    <!-- 核心：窗帘图片展示区（带编号） -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- 窗帘款式1（示例） -->
+            <div class="curtain-item bg-white rounded-lg shadow-sm overflow-hidden">
+                <img src="https://picsum.photos/600/400?random=1" alt="窗帘款式C001" class="w-full h-48 object-cover curtain-img" onclick="openImgModal(this)">
+                <div class="p-4 text-center">
+                    <span class="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium">编号：C001</span>
+                    <p class="mt-2 text-gray-700">现代简约纯色窗帘</p>
+                </div>
+            </div>
+
+            <!-- 窗帘款式2（示例） -->
+            <div class="curtain-item bg-white rounded-lg shadow-sm overflow-hidden">
+                <img src="https://picsum.photos/600/400?random=2" alt="窗帘款式C002" class="w-full h-48 object-cover curtain-img" onclick="openImgModal(this)">
+                <div class="p-4 text-center">
+                    <span class="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium">编号：C002</span>
+                    <p class="mt-2 text-gray-700">北欧轻奢提花窗帘</p>
+                </div>
+            </div>
+
+            <!-- 窗帘款式3（示例） -->
+            <div class="curtain-item bg-white rounded-lg shadow-sm overflow-hidden">
+                <img src="https://picsum.photos/600/400?random=3" alt="窗帘款式C003" class="w-full h-48 object-cover curtain-img" onclick="openImgModal(this)">
+                <div class="p-4 text-center">
+                    <span class="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium">编号：C003</span>
+                    <p class="mt-2 text-gray-700">中式古典刺绣窗帘</p>
+                </div>
+            </div>
+
+            <!-- 窗帘款式4（示例） -->
+            <div class="curtain-item bg-white rounded-lg shadow-sm overflow-hidden">
+                <img src="https://picsum.photos/600/400?random=4" alt="窗帘款式C004" class="w-full h-48 object-cover curtain-img" onclick="openImgModal(this)">
+                <div class="p-4 text-center">
+                    <span class="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium">编号：C004</span>
+                    <p class="mt-2 text-gray-700">儿童房卡通印花窗帘</p>
+                </div>
+            </div>
+
+            <!-- 窗帘款式5（示例） -->
+            <div class="curtain-item bg-white rounded-lg shadow-sm overflow-hidden">
+                <img src="https://picsum.photos/600/400?random=5" alt="窗帘款式C005" class="w-full h-48 object-cover curtain-img" onclick="openImgModal(this)">
+                <div class="p-4 text-center">
+                    <span class="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium">编号：C005</span>
+                    <p class="mt-2 text-gray-700">遮光隔热亚麻窗帘</p>
+                </div>
+            </div>
+
+            <!-- 窗帘款式6（示例） -->
+            <div class="curtain-item bg-white rounded-lg shadow-sm overflow-hidden">
+                <img src="https://picsum.photos/600/400?random=6" alt="窗帘款式C006" class="w-full h-48 object-cover curtain-img" onclick="openImgModal(this)">
+                <div class="p-4 text-center">
+                    <span class="inline-block px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium">编号：C006</span>
+                    <p class="mt-2 text-gray-700">法式浪漫蕾丝窗帘</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 网站底部（商家联系方式，方便客户咨询） -->
+    <footer class="bg-white shadow-inner py-6 px-6 text-center mt-8">
+        <p class="text-gray-800 font-medium">定制咨询：138-XXXX-XXXX（微信同号）</p>
+        <p class="text-gray-600 mt-2 text-sm">地址：XX市XX区XX路XX号 XX窗帘体验馆</p>
+        <p class="text-gray-500 mt-4 text-xs">© 2026 XX窗帘定制 版权所有</p>
+    </footer>
+
+    <!-- 新增：图片放大弹窗（默认隐藏） -->
+    <div class="img-modal" onclick="closeImgModal()">
+        <img src="" alt="放大的窗帘图片" class="modal-img">
+    </div>
+
+    <!-- 新增：图片放大/关闭核心JS -->
+    <script>
+        // 打开图片放大弹窗
+        function openImgModal(imgElement) {
+            const modal = document.querySelector('.img-modal');
+            const modalImg = document.querySelector('.modal-img');
+            // 给弹窗图片赋值（当前点击的窗帘图片链接和描述）
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+            // 显示弹窗
+            modal.classList.add('active');
+            // 禁止页面滚动
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭图片放大弹窗
+        function closeImgModal() {
+            const modal = document.querySelector('.img-modal');
+            // 隐藏弹窗
+            modal.classList.remove('active');
+            // 恢复页面滚动
+            document.body.style.overflow = 'auto';
+        }
+
+        // 按ESC键也可关闭弹窗（优化体验）
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeImgModal();
+            }
+        });
+    </script>
+</body>
+</html>
